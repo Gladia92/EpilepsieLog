@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Mon Journal Épilepsie</title>
+    <link rel="icon" type="image/png" href="./icon.png" />
+    <script>
+      (function () {
+        try {
+          var s = JSON.parse(localStorage.getItem("epilepsielog-settings.json")) || {};
+          var p = s.theme;
+          var dark = p === "dark" ||
+            (p !== "light" && window.matchMedia &&
+             window.matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.dataset.theme = dark ? "dark" : "light";
+        } catch (e) {}
+      })();
+    </script>
+    <!-- Anti-flash langue : pose <html lang> avant le premier rendu React.
+         Miroir localStorage écrit par setLang/detectLang (i18n/LanguageContext). -->
+    <script>
+      try {
+        var l = localStorage.getItem("epilepsielog-lang");
+        if (l) document.documentElement.lang = l === "zh" ? "zh-CN" : l;
+      } catch (e) {}
+    </script>
+    <script type="module" crossorigin src="./assets/index-BcbQkPng.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BeZMs_gz.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
